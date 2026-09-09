@@ -1,6 +1,18 @@
-# PDFul
+<p align="center">
+  <img src="assets/logo.png" alt="PDFul" width="420">
+</p>
 
-**PDFul** (pronounced "beautiful") is a standalone PDF editor for Linux.
+<p align="center">
+  <strong>PDFul</strong> (pronounced "beautiful") is a standalone PDF editor for Linux.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License">
+  <img src="https://img.shields.io/badge/platform-Linux-informational.svg" alt="Linux">
+  <img src="https://img.shields.io/badge/built%20with-Tauri-24C8DB.svg" alt="Tauri">
+</p>
+
+---
 
 Continuous scroll, find in document, freehand and highlighter annotation, shapes and arrows,
 threaded comments saved as real PDF sticky notes, e-signatures that persist between sessions,
@@ -72,6 +84,9 @@ Saving always writes a new file through the native save dialog. Your original is
 
 ## Project layout
 
+    assets/logo.png        project logo
+    assets/icon.png        app icon, 1024px master
+    src-tauri/icons/       app icons at 32, 128, 256 and 512
     frontend/index.html    the entire editor UI
     frontend/vendor/       libraries, downloaded by fetch-vendor.sh (gitignored)
     src-tauri/src/main.rs  Rust shell: window, native dialogs, file and signature storage

@@ -45,13 +45,23 @@ if [ ! -f "$HERE/frontend/vendor/fabric.min.js" ]; then
   "$HERE/fetch-vendor.sh"
 fi
 
+# Cargo bakes absolute paths into build-script output. If this checkout was moved
+# or renamed, the old target dir poisons the build (tauri "failed to read plugin
+# permissions"). Detect it and start clean.
+STAMP="$HERE/src-tauri/target/.build-path"
+if [ -d "$HERE/src-tauri/target" ] && [ "$(cat "$STAMP" 2>/dev/null)" != "$HERE" ]; then
+  say "Build cache was created at a different path, cleaning"
+  rm -rf "$HERE/src-tauri/target"
+fi
+mkdir -p "$HERE/src-tauri/target" && printf '%s\n' "$HERE" > "$STAMP"
+
 say "Building (first build takes 5 to 10 minutes)"
 ( cd "$HERE/src-tauri" && cargo build --release )
 
 say "Installing"
 install -Dm755 "$HERE/src-tauri/target/release/pdful" "$BIN/pdful"
 install -Dm644 "$HERE/pdful.desktop" "$APPS/pdful.desktop"
-for s in 512:icon 128:128x128 32:32x32; do
+for s in 512:icon 256:128x128@2x 128:128x128 32:32x32; do
   install -Dm644 "$HERE/src-tauri/icons/${s#*:}.png" "$ICONS/${s%%:*}x${s%%:*}/apps/pdful.png"
 done
 command -v update-desktop-database >/dev/null && update-desktop-database "$APPS" 2>/dev/null || true

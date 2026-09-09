@@ -1,6 +1,6 @@
 [package]
 name = "pdful"
-version = "1.2.0"
+version = "1.2.1"
 description = "PDFul: annotate, comment, sign, scan and OCR PDFs"
 authors = ["Simon Wong <simon@108cap.com>"]
 license = "MIT"
