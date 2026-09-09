@@ -20,6 +20,10 @@ stamps, scan import, and local OCR that turns scans into searchable PDFs.
 
 Everything runs on your machine. Nothing is uploaded anywhere.
 
+<p align="center">
+<img src="assets/pdful_screenshot.png" >
+</p>
+
 ## Install
 
     git clone https://github.com/YOURNAME/pdful.git
