@@ -1,0 +1,17 @@
+# build output
+src-tauri/target/
+src-tauri/gen/
+
+# libraries fetched by fetch-vendor.sh
+frontend/vendor/*
+!frontend/vendor/local.js
+
+# editors and OS cruft
+*.swp
+.DS_Store
+.idea/
+.vscode/
+/src/
+/pkg/
+*.pkg.tar.zst
+*.tar.gz

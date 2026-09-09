@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=PDFul
+Comment=Annotate, comment, sign, scan and OCR PDFs
+Exec=pdful %f
+Icon=pdful
+Terminal=false
+Categories=Office;Viewer;
+MimeType=application/pdf;
+Keywords=pdf;annotate;sign;ocr;
+StartupWMClass=pdful
